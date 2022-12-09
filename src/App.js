@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import './App.css';
 import Header from './Header';
 import Player from './Player';
@@ -73,7 +73,7 @@ const App = () => {
       id:13
     }
   ]);
-  const [nextPlayerId, setNextPlayerId] = useState(13);
+  const nextPlayerId = useRef(14)
 
   const handleRemovPlayer = (id) => {
       setPlayers(prevPlayers => prevPlayers.filter(p => p.id !== id));
@@ -98,10 +98,10 @@ const handleAddPlayer = (name) => {
     {
       name,
       score: 0,
-      id: nextPlayerId
+      id: nextPlayerId.current ++
     }
   ]);
-  setNextPlayerId(prevId => prevId + 1);
+  // nextPlayerId.current += 1;
 };
 
   return (
