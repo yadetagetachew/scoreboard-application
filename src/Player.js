@@ -25,10 +25,10 @@ const Player = ({score, id, changeScore, removePlayer, name}) => {
   }
 
   Player.propTypes = {
-    score: PropTypes.number ,
-    id: PropTypes.number ,
-    removePlayer: PropTypes.func ,
-    name: PropTypes.string
+    score: PropTypes.number.isRequired ,
+    id: PropTypes.number.isRequired ,
+    removePlayer: PropTypes.func.isRequired ,
+    name: PropTypes.string.isRequired
   };
 
 export default memo(Player, playerPropsAreEqual)

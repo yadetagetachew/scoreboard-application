@@ -107,7 +107,7 @@ const handleAddPlayer = (name) => {
   return (
       <div className="scoreboard">
           <Header 
-              title="Trivia Score" 
+              // title="Trivia Score" 
               players={players} 
           />
           {players.map( player =>

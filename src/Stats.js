@@ -24,7 +24,7 @@ const Stats = ({players}) => {
 
 Stats.propTypes = {
     player: PropTypes.arrayOf(PropTypes.shape({
-        score: PropTypes.number
+        score: PropTypes.number.isRequired
     })),
 };
 

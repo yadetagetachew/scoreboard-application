@@ -13,9 +13,9 @@ const Counter = ({score, id, changeScore}) => {
   };
   
   Counter.propTypes = {
-    score: PropTypes.number,
-    id: PropTypes.number,
-    changeScore:PropTypes.func
+    score: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+    changeScore:PropTypes.func.isRequired
   };
 
   export default Counter

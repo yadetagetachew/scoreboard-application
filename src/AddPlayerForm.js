@@ -25,7 +25,7 @@ const AddPlayerForm = ({addPlayer}) => {
 };
 
 AddPlayerForm.propTypes = {
-    addPlayer: PropTypes.func
+    addPlayer: PropTypes.func.isRequired
 }
 
 export default AddPlayerForm
