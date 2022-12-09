@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import Header from './Header';
 import Player from './Player';
 import AddPlayerForm from './AddPlayerForm';
 
 const App = () => {
-  const [players, setPlayers] = React.useState([
+  const [players, setPlayers] = useState([
     {
         name:"Yadi",
         score:0,
@@ -73,7 +73,14 @@ const App = () => {
       id:13
     }
   ]);
+
+  const [highScore, setHighScore] = useState()
   const nextPlayerId = useRef(14)
+
+  useEffect(() => {
+    const scores = players.map(player => player.score)
+    setHighScore(Math.max(...scores));
+  }, [players]);
 
   const handleRemovPlayer = (id) => {
       setPlayers(prevPlayers => prevPlayers.filter(p => p.id !== id));
@@ -118,6 +125,7 @@ const handleAddPlayer = (name) => {
                   key={player.id.toString()}
                   removePlayer={handleRemovPlayer}
                   changeScore={handleScoreChange}
+                  isHighScore={player.score === highScore && highScore !== 0}
               />
           )}
           <AddPlayerForm addPlayer={handleAddPlayer}/>            
